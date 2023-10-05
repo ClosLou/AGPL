@@ -1,6 +1,6 @@
 # AGPL_Project
-
-
+apt-get install graphviz libgraphviz-dev
+graphviz est necessaire pour utiliser dsplot
 
 ## Getting started
 
