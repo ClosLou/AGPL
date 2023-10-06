@@ -1,6 +1,6 @@
 from tree_gen import Node, AtomType, gen_conc, gen_star, gen_atom, gen_union
 from graphic_modules import tree_print, draw_tree, create_tree_dsplot
-from constantes import A1, A2, A3, A4, A5
+from constantes import A1, A2, A3, A4, A5, A
 
 
 if __name__ == '__main__':

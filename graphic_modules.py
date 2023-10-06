@@ -40,10 +40,9 @@ def draw_tree(tree):
     print() # affichage d'une fin de ligne
     
 def draw_tree_aux(tree, level):
+    print('---'*level,tree.value, sep='')
     if tree.left != None:
         draw_tree_aux(tree.left, level+1)
-    print('   '*level, end = ' ')
-    print(tree.value)
     if tree.right != None:
         draw_tree_aux(tree.right, level+1)
     return

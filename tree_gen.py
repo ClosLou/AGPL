@@ -31,13 +31,13 @@ def gen_union(left : Node, right : Node) -> Node:
     return new_node
 
 def gen_star(left : Node) -> Node:
-    new_node = Node(left, None, 'star',  value= '*')
+    new_node = Node(left, classe = 'star',  value= '*')
     return new_node
 
 def gen_un(left : Node) -> Node:
-    new_node = Node(left, None, 'un', value= '(\\\\)')
+    new_node = Node(left, classe = 'un', value= '(\\\\)')
     return new_node
 
 def gen_atom(value : str, action : int, AtomType : AtomType) -> Node:
-    new_node = Node(None, None, 'atom', action, value, AtomType)
+    new_node = Node(classe = 'atom', action = action, value = value, AType = AtomType)
     return new_node 
