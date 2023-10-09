@@ -1,4 +1,4 @@
-from tree_gen import Node, AtomType
+from tree_gen import Node, AtomType, Classe
 # Utilisé pour le dessin de l'arbre
 from dsplot import tree
 
@@ -17,19 +17,25 @@ def tree_print_aux(tree : Node):
     oblique pour les noeuds de type un 
     
     '''
-    if tree.classe=='star':
+    if tree.classe==Classe.Star:
         print('[', end = ' ')
-    elif tree.classe=='un':
+    elif tree.classe==Classe.Un:
         print('(\\', end = ' ')
     if tree.left != None:
         tree_print_aux(tree.left)
     
-    if tree.classe=='star':
+    if tree.classe==Classe.Star:
         print(']', end = ' ')
-    elif tree.classe=='un':
+    elif tree.classe==Classe.Un:
         print('\\)', end = ' ')
     else :
-        print(tree.value, end = ' ')
+        if tree.classe==Classe.Atom:
+            if tree.AType == AtomType.Terminal:
+                print("'",tree.value,"'", sep='', end = ' ')
+            else:
+                print(tree.value, end = ' ')
+        else:
+            print(tree.value, end = ' ')
     
     if tree.right != None:
         tree_print_aux(tree.right)
@@ -40,7 +46,13 @@ def draw_tree(tree):
     print() # affichage d'une fin de ligne
     
 def draw_tree_aux(tree, level):
-    print('---'*level,tree.value, sep='')
+    if tree.classe==Classe.Atom:
+        if tree.AType == AtomType.Terminal:
+            print('---'*level,"'",tree.value,"'", sep='')
+        else:
+            print('---'*level,tree.value, sep='')
+    else:
+        print('---'*level,tree.value, sep='')
     if tree.left != None:
         draw_tree_aux(tree.left, level+1)
     if tree.right != None:

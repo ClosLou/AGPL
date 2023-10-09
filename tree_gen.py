@@ -3,8 +3,15 @@ from enum import Enum
 class AtomType(Enum):
     Terminal = 1
     NonTerminal = 2
+    
 
-AtomType = Enum('AtomType', ['Terminal', 'NonTerminal'])
+class Classe(Enum):
+    Conc = 1
+    Union = 2
+    Star = 3
+    Un = 4
+    Atom = 5
+    
 
 class Node:
     '''
@@ -23,21 +30,21 @@ def gen_conc(left : Node, right : Node) -> Node:
     '''
     Fonction qui permet de générer un noeud de type concaténation
     '''
-    new_node = Node(left, right, 'conc',  value= '.')
+    new_node = Node(left, right, Classe.Conc,  value= '.')
     return new_node
 
 def gen_union(left : Node, right : Node) -> Node:
-    new_node = Node(left, right, 'union',  value= '+')
+    new_node = Node(left, right, Classe.Union,  value= '+')
     return new_node
 
 def gen_star(left : Node) -> Node:
-    new_node = Node(left, classe = 'star',  value= '*')
+    new_node = Node(left, classe = Classe.Star,  value= '*')
     return new_node
 
 def gen_un(left : Node) -> Node:
-    new_node = Node(left, classe = 'un', value= '(\\\\)')
+    new_node = Node(left, classe = Classe.Un, value= '(\\\\)')
     return new_node
 
 def gen_atom(value : str, action : int, AtomType : AtomType) -> Node:
-    new_node = Node(classe = 'atom', action = action, value = value, AType = AtomType)
+    new_node = Node(classe = Classe.Atom, action = action, value = value, AType = AtomType)
     return new_node 
