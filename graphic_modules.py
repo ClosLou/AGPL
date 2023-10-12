@@ -84,9 +84,21 @@ def read_tree_to_list_for_dsplot_aux(tree, list_value, index):
         return 
     else :
         if len(list_value) <= index:
-            list_value.append([tree.value])
+            if tree.classe==Classe.Atom:
+                if tree.AType == AtomType.Terminal:
+                    list_value.append(["'"+tree.value+"'"])
+                else:
+                    list_value.append([tree.value])
+            else:
+                list_value.append([tree.value])
         else :
-            list_value[index].append(tree.value)
+            if tree.classe==Classe.Atom:
+                if tree.AType == AtomType.Terminal:
+                    list_value[index].append("'"+tree.value+"'")
+                else:
+                    list_value[index].append(tree.value)
+            else:
+                list_value[index].append(tree.value)
         read_tree_to_list_for_dsplot_aux(tree.left, list_value, index+1)
         read_tree_to_list_for_dsplot_aux(tree.right, list_value, index+1)
 
