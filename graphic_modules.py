@@ -2,14 +2,14 @@ from tree_gen import Node, AtomType, Classe
 # Utilisé pour le dessin de l'arbre
 from dsplot import tree
 
-def tree_print(tree : Node):
+def tree_print(tree : Node, sep : str = ' '):
     '''
     Fonction qui permet d'afficher un arbre dans la console
     '''
-    tree_print_aux(tree)
+    tree_print_aux(tree, sep)
     print()
 
-def tree_print_aux(tree : Node):
+def tree_print_aux(tree : Node, sep : str = ' '):
     '''
     Fonction auxiliaire qui permet d'afficher un arbre dans la console
     il s'agit d'un parcours préfixe de l'arbre avec des test afin de savoir si on doit 
@@ -18,27 +18,27 @@ def tree_print_aux(tree : Node):
     
     '''
     if tree.classe==Classe.Star:
-        print('[', end = ' ')
+        print('[', end = sep)
     elif tree.classe==Classe.Un:
-        print('(\\', end = ' ')
+        print('(\\', end = sep)
     if tree.left != None:
-        tree_print_aux(tree.left)
+        tree_print_aux(tree.left, sep)
     
     if tree.classe==Classe.Star:
-        print(']', end = ' ')
+        print(']', end = sep)
     elif tree.classe==Classe.Un:
-        print('\\)', end = ' ')
+        print('\\)', end = sep)
     else :
         if tree.classe==Classe.Atom:
             if tree.AType == AtomType.Terminal:
-                print("'",tree.value,"'", sep='', end = ' ')
+                print("'",tree.value,"'", sep='', end = sep)
             else:
-                print(tree.value, end = ' ')
+                print(tree.value, end = sep)
         else:
-            print(tree.value, end = ' ')
+            print(tree.value, end = sep)
     
     if tree.right != None:
-        tree_print_aux(tree.right)
+        tree_print_aux(tree.right, sep)
     return
 
 def draw_tree(tree):
