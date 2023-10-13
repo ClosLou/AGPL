@@ -1,5 +1,5 @@
 # AGPL_Project
-
+Le projet AGPL a pour objectif d'analyser une grammaire en utilisant une super-grammaire. Pour cela, il a d'abord fallu créer une super grammaire permettant de vérifier les règles. Une fois la super-grammaire mise en place, les grammaires à tester sont scannées avec la fonction scan() puis analyser avec la fonction analyse()
 
 
 ## Getting started
