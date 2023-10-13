@@ -17,7 +17,9 @@ def isElter(grammar : str) -> bool:
             return False
         else :
             index += 1
-        while grammar[index] != "'" :
+        while grammar[index] != "'" and not grammar[index-1] == '\\' : 
+            # On ne prend pas en compte les ' qui sont précédés d'un \
+            # car ils ne sont pas des délimiteurs
             if index >= len(grammar) :
                 return False
             index += 1
@@ -45,6 +47,7 @@ def analyse(node : Node, grammar : str)-> bool :
 
 def analyse_aux(node : Node, grammar : str)-> bool :
     global index
+    print(node.value, end = ' ')
     if node.classe == Classe.Conc :
         if analyse_aux(node.left, grammar) :
             return analyse_aux(node.right, grammar)
