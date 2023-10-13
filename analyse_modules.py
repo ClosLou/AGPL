@@ -34,13 +34,16 @@ def isIDnter(grammar : str) -> bool:
     else :
         return False
 
-def analyse(node : Node, grammar)-> bool :
+
+def analyse(node : Node, grammar : str)-> bool :
     global index
     index = 0
-    return analyse_aux(node, grammar)
+    if analyse_aux(node, grammar) and index == len(grammar):
+        return True
+    else:
+        return False
 
-
-def analyse_aux(node : Node, grammar)-> bool :
+def analyse_aux(node : Node, grammar : str)-> bool :
     global index
     if node.classe == Classe.Conc :
         if analyse_aux(node.left, grammar) :
