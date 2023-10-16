@@ -1,3 +1,9 @@
+'''
+Ecriture des classes operateurs et atom 
+Ecriture des fonctions pour créer un noeud pour chaque type d'opération (conc, union, star,
+un, atom)
+'''
+
 # 1) création classe operations
 from enum import Enum # traducteur pour ordinateur des choix quali
 
@@ -19,10 +25,10 @@ class Node:
     def __init__(self, left = 'None', right = 'None', classe = 'None', action = 'None',
                 Atype = 'None', value = 'None'): # constructeur, Atype : stock du type 
         self.action = action
-        self.left = left
-        self.right = right
-        self.value = value
-        self.Atype = Atype
+        self.left   = left
+        self.right  = right
+        self.value  = value
+        self.Atype  = Atype
         self.classe = classe
 
 # 2) ecriture de chaque fonction operation
