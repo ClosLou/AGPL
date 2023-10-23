@@ -3,6 +3,14 @@ from tree_gen import *
 
 
 def isArrow(grammar : str) -> bool:
+    """Fonction qui permet de savoir si la grammaire contient une flèche
+
+    Args:
+        grammar (str): grammaire à analyser
+
+    Returns:
+        bool: True si la grammaire contient une flèche, False sinon
+    """
     global index
     if grammar[index:index+2] == '->':
         index += 2
@@ -11,6 +19,14 @@ def isArrow(grammar : str) -> bool:
         return False
     
 def isElter(grammar : str) -> bool:
+    """Fonction qui permet de savoir si la grammaire contient un élément terminal
+
+    Args:
+        grammar (str): grammaire à analyser
+
+    Returns:
+        bool: True si la grammaire contient un élément terminal, False sinon
+    """
     global index
     if grammar[index] == "'":
         if index >= len(grammar) :
@@ -29,6 +45,14 @@ def isElter(grammar : str) -> bool:
         return False
     
 def isIDnter(grammar : str) -> bool:
+    """Fonction qui permet de savoir si la grammaire contient un élément non terminal
+
+    Args:
+        grammar (str): grammaire à analyser
+
+    Returns:
+        bool: True si la grammaire contient un élément non terminal, False sinon
+    """
     global index
     if grammar[index] in 'SNETF' :
         index += 1
@@ -38,6 +62,15 @@ def isIDnter(grammar : str) -> bool:
 
 
 def analyse(node : Node, grammar : str)-> bool :
+    """Fonction qui permet d'analyser une grammaire
+
+    Args:
+        node (Node): noeud de l'arbre
+        grammar (str): grammaire à analyser
+
+    Returns:
+        bool: True si la grammaire est correcte, False sinon
+    """
     global index
     index = 0
     if analyse_aux(node, grammar) and index == len(grammar):
@@ -46,6 +79,15 @@ def analyse(node : Node, grammar : str)-> bool :
         return False
 
 def analyse_aux(node : Node, grammar : str)-> bool :
+    """Fonction auxiliaire qui permet d'analyser une grammaire
+
+    Args:
+        node (Node): noeud de l'arbre
+        grammar (str): grammaire à analyser
+
+    Returns:
+        bool: True si la grammaire est correcte, False sinon
+    """
     global index
     if index == len(grammar) :
         return False
