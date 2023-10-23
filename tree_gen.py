@@ -42,7 +42,7 @@ def gen_star(left : Node) -> Node:
     return new_node
 
 def gen_un(left : Node) -> Node:
-    new_node = Node(left, classe = Classe.Un, value= '(\\\\)')
+    new_node = Node(left, classe = Classe.Un, value= '(//)')
     return new_node
 
 def gen_atom(value : str, action : int, AtomType : AtomType) -> Node:

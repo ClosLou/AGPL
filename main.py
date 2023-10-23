@@ -12,14 +12,11 @@ if __name__ == '__main__':
         "T->F.['.'.F],;",
         "F->'IDnter'+'Elter'+'('.E.')'+'['.E.']'+'(/'.E.'/)',;"
         ]
-    for grammar in grammars:
-        if analyse(A[0], grammar) :
-            print(f'La grammaire : "{grammar}" est correcte', end = '\n\n')
-        else:
-            print(f'La grammaire "{grammar}" n\'est pas correcte', end = '\n\n')
-    
-    # create_tree_dsplot(A1, 'A1.png')
-    # create_tree_dsplot(A2, 'A2.png')
-    # create_tree_dsplot(A3, 'A3.png')
-    # create_tree_dsplot(A4, 'A4.png')
-    # create_tree_dsplot(A5, 'A5.png')
+    # for grammar in grammars:
+    #     if analyse(A[0], grammar) :
+    #         print(f'La grammaire : "{grammar}" est correcte', end = '\n\n')
+    #     else:
+    #         print(f'La grammaire "{grammar}" n\'est pas correcte', end = '\n\n')
+    for a in A:
+        tree_print(a)
+        print('\n')
