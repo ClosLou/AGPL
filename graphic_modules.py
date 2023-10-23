@@ -49,7 +49,7 @@ def tree_print_aux(tree : Node, sep : str) -> None:
         tree_print_aux(tree.right, sep)
     return
 
-def draw_tree(tree : Node : Node) -> None:
+def draw_tree(tree : Node) -> None:
     """Fonction qui permet de dessiner un arbre dans la console
 
     Args:
