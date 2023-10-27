@@ -65,12 +65,12 @@ def draw_tree_aux(tree : Node, depth : int) -> None:
         tree (Node): arbre à dessiner
         depth (int): profondeur de l'arbre
     """
-    if tree.classe == Classe.Atom and tree.AType == AtomType.Terminal:
-            print('---'*depth,"'",tree.value,"'", sep='')
-    else:
-        print('---'*depth,tree.value, sep='')
     if tree.left is not None:
         draw_tree_aux(tree.left, depth+1)
+    if tree.classe == Classe.Atom and tree.AType == AtomType.Terminal:
+            print('--- '*depth,"'",tree.value,"'", sep='')
+    else:
+        print('--- '*depth,tree.value, sep='')
     if tree.right is not None:
         draw_tree_aux(tree.right, depth+1)
     return
@@ -92,7 +92,7 @@ def read_tree_to_list_for_dsplot(tree : Node) -> list:
         list_value.pop()
     return sum(list_value,[])
 
-def read_tree_to_list_for_dsplot_aux(tree : Node, list_value : list, index : int):
+def read_tree_to_list_for_dsplot_aux(tree : Node, list_value : list, depth : int):
     """Fonction auxiliaire qui permet de lire un arbre et de le retourner sous forme de liste 
     les valeurs sont stockées en fonction de leur niveau dans l'arbre
 
@@ -101,15 +101,14 @@ def read_tree_to_list_for_dsplot_aux(tree : Node, list_value : list, index : int
         list_value (list): Liste des valeurs de l'arbre
         index (int): Niveau de l'arbre
     """
-
     if tree == None:
-        if len(list_value) <= index:
+        if len(list_value) <= depth:
             list_value.append([None])
         else :
-            list_value[index].append(None)
+            list_value[depth].append(None)
         return 
     else :
-        if len(list_value) <= index:
+        if len(list_value) <= depth:
             if tree.classe == Classe.Atom:
                 if tree.AType == AtomType.Terminal:
                     list_value.append(["'"+tree.value+"'"])
@@ -120,13 +119,13 @@ def read_tree_to_list_for_dsplot_aux(tree : Node, list_value : list, index : int
         else :
             if tree.classe == Classe.Atom:
                 if tree.AType == AtomType.Terminal:
-                    list_value[index].append("'"+tree.value+"'")
+                    list_value[depth].append("'"+tree.value+"'")
                 else:
-                    list_value[index].append(tree.value)
+                    list_value[depth].append(tree.value)
             else:
-                list_value[index].append(tree.value)
-        read_tree_to_list_for_dsplot_aux(tree.left, list_value, index+1)
-        read_tree_to_list_for_dsplot_aux(tree.right, list_value, index+1)
+                list_value[depth].append(tree.value)
+        read_tree_to_list_for_dsplot_aux(tree.left, list_value, depth+1)
+        read_tree_to_list_for_dsplot_aux(tree.right, list_value, depth+1)
 
 def create_tree_dsplot(node_tree : Node, output_path : str):
     """Fonction qui permet de créer un plot de l'arbre tree avec dsplot.tree.BinaryTree

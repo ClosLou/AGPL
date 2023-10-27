@@ -21,7 +21,14 @@ if __name__ == '__main__':
             print(f'La grammaire : "{grammar}" est correcte', end = '\n\n')
         else:
             print(f'La grammaire "{grammar}" n\'est pas correcte', end = '\n\n')
-        
+    
+    for a in A :
+        print(f'Arbre de la grammaire : {a}')
+        tree_print(a)
+        print()
+        draw_tree(a)
+        print()
+
 
     
     
