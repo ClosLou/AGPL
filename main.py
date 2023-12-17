@@ -5,13 +5,14 @@ from analyse_modules import analyse, scan
 
 
 if __name__ == '__main__':
-    g0 = "S->[N.'->'.E.','].';',N->'IDnter',E->T.['+'.T],T->F.['.'.F],F->['IDnter'.'Elter'.('('.E.')')+('['.E.']').('(/'.E.'/)')],;"
+    g0 = "S->[N.'->'.E.','].';',N->'IDnter',E->T.['+'.T],T->F.['.'.F],F->['IDnter'+'Elter'+'('.E.')'+'['.E.']'+'(/'.E.'/)'],;"
     regles = ["S->[N.'->'.E.','].';',;",
         "N->'IDnter',;",
         "E->T.['+'.T],;",
         "T->F.['.'.F],;",
-        "F->['IDnter'.'Elter'.('('.E.')')+('['.E.']').('(/'.E.'/)')],;",]
+        "F->['IDnter'+'Elter'+'('.E.')'+'['.E.']'+'(/'.E.'/)'],;",]
     grammars = [
+        "F->['IDnter'+'Elter'+('('.E.')')+('['.E.']').('(/'.E.'/)')],;", # Bonne grammaire
         "F->'IDnter'+'Elter',;", # Bonne grammaire
         "F->'IDnter'+'Elter';", # Erreur : ',' manquant
         "N->'Elter',.", # Erreur : '.' faux -> ';' attendu
