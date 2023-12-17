@@ -1,6 +1,6 @@
 from tree_gen import Node, AtomType, Classe
 # Utilisé pour le dessin de l'arbre
-from dsplot import tree
+#from dsplot import tree
 
 def tree_print(tree : Node, sep : str = ' ') -> None:
     """Fonction qui permet d'afficher un arbre dans la console
@@ -23,10 +23,7 @@ def tree_print_aux(tree : Node, sep : str) -> None:
         tree (Node): Arbre à afficher
         sep (str, optional): Séparateur entre les noeuds. Par défaut ' '.
     """
-    '''
 
-    
-    '''
     if tree.classe == Classe.Star:
         print('[', end = sep)
     elif tree.classe == Classe.Un:
