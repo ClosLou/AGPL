@@ -33,7 +33,7 @@ def scan(grammar : str)-> list:
             while grammar[index] != "'" and not grammar[index-1] == '\\' : 
                 # On ne prend pas en compte les ' qui sont précédés d'un \
                 # car ils ne sont pas des délimiteurs
-                if  len(grammar) <= index :
+                if  len(grammar)-1 == index+1 :
                     print('Erreur lors du scan de la grammaire : guillemet fermant manquant')
                     return [] #TODO : gérer les erreurs
                 index += 1

@@ -35,6 +35,7 @@ if __name__ == '__main__':
             print("1 - Démontrer que G0 appartient à G0 en une analyse")
             print("2 - Démontrer que G0 appartient à G0 avec l'analyse de chaque règle de la grammaire")
             print("3 - Analyser d'autre grammaires avec G0")
+            print("4 - Analyser votre propre grammaire")
             choix2 = int(input("Votre choix : "))
             print()
             if choix2 == 1 :
@@ -62,6 +63,15 @@ if __name__ == '__main__':
                     else:
                         print(f'La grammaire "{grammar}" n\'est pas correcte', end = '\n\n')
                     print()
+            elif choix2 == 4 :
+                grammar = input('Entrez votre grammaire :')
+                list_grammar = scan(grammar)
+                print(f"Analyse de la grammaire {grammar} avec les règles de la grammaire G0")
+                if analyse(A[0], list_grammar) :
+                    print(f'La grammaire : "{grammar}" est correcte', end = '\n\n')
+                else:
+                    print(f'La grammaire "{grammar}" n\'est pas correcte', end = '\n\n')
+                print()
         elif choix == 2 :
             choix2 = 0
             print("Voulez-vous afficher les arbres de la metagrammaire avec la profondeur ou sans la profondeur ?")
