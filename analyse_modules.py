@@ -28,14 +28,16 @@ def scan(grammar : str)-> list:
         elif grammar[0] == "'":
             if len(grammar) <= 1 :
                 print('Erreur lors du scan de la grammaire : guillemet fermant manquant')
-                return [] #TODO : gérer les erreurs
+                return []
             index = 1
+            
             while grammar[index] != "'" and not grammar[index-1] == '\\' : 
                 # On ne prend pas en compte les ' qui sont précédés d'un \
                 # car ils ne sont pas des délimiteurs
-                if  len(grammar)-1 == index+1 :
+                print(grammar[index], " ", index)
+                if  len(grammar) == index+1 :
                     print('Erreur lors du scan de la grammaire : guillemet fermant manquant')
-                    return [] #TODO : gérer les erreurs
+                    return []
                 index += 1
             index += 1
             grammar_list.append((grammar[0:index], AtomType.Terminal))
@@ -69,7 +71,8 @@ def analyse(node : Node, grammar_list : str)-> bool :
     Returns:
         bool: True si la grammaire est correcte, False sinon
     """
-
+    if not grammar_list:
+        return False
     index_list = [0]
     if analyse_aux(node, grammar_list, index_list) and index_list[0] == len(grammar_list):
         return True
