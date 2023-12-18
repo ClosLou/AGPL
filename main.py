@@ -65,6 +65,7 @@ if __name__ == '__main__':
                     print()
             elif choix2 == 4 :
                 grammar = input('Entrez votre grammaire :')
+                print()
                 list_grammar = scan(grammar)
                 print(f"Analyse de la grammaire {grammar} avec les règles de la grammaire G0")
                 if analyse(A[0], list_grammar) :
