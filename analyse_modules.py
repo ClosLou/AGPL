@@ -31,7 +31,7 @@ def scan(grammar : str)-> list:
                 return []
             index = 1
             
-            while grammar[index] != "'" and not grammar[index-1] == '\\' : 
+            while grammar[index] != "'" or (grammar[index-1] == '\\' and grammar[index] == "'"): 
                 # On ne prend pas en compte les ' qui sont précédés d'un \
                 # car ils ne sont pas des délimiteurs
                 if  len(grammar) == index+1 :
