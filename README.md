@@ -36,7 +36,6 @@ Cependant, le projet inclut un module optionnel (`dsplot_visualizer.py`) pour vi
 ### Prérequis
 
 -   Python 3.x
--   Graphviz
 
 ### Installation
 
