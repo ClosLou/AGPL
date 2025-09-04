@@ -1,5 +1,21 @@
 # Projet AGPL
 
+## Contexte du Projet
+
+Ce projet a été réalisé dans le cadre du Master Bioinformatique de Nantes Université durant l'année universitaire 2023-2024. Il s'agit d'un analyseur de grammaire développé pour un petit langage, sous la supervision du Professeur Mourad Oussalah.
+
+### Auteurs
+
+*   **Louis Closson** - [clossonlouis@gmail.com](mailto:clossonlouis@gmail.com)
+*   **Louise Helary**
+*   **Louis Troussé**
+
+### Encadrant
+
+*   **Mourad Oussalah** - [mourad.oussalah@univ-nantes.fr](mailto:mourad.oussalah@univ-nantes.fr)
+
+---
+
 Programme d'analyse de grammaire pour un petit langage. Le projet est structuré en plusieurs modules Python pour une meilleure organisation du code.
 
 -   `main.py`: Le point d'entrée du programme. Il fournit un menu interactif pour tester différentes fonctionnalités de l'analyseur.
