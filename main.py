@@ -1,5 +1,5 @@
 from agpl_analyzer.analyse_modules import analyse, scan
-from agpl_analyzer.grammar_builder import A1, A2, A3, A4, A5, A
+from agpl_analyzer.grammar_builder import A
 from agpl_analyzer.tree_visualizer import tree_print, draw_tree
 
 
