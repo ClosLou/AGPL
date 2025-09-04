@@ -1,4 +1,4 @@
-from tree_gen import *
+from agpl_analyzer.tree_gen import *
 
 # Règle "S->[N.'->'.E.','].';'"
 A1 = gen_conc(

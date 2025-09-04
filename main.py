@@ -1,7 +1,7 @@
-from tree_gen import Node, AtomType, gen_conc, gen_star, gen_atom, gen_union, Classe
-from graphic_modules import tree_print, draw_tree, create_tree_dsplot
-from constantes import A1, A2, A3, A4, A5, A
-from analyse_modules import analyse, scan
+from agpl_analyzer.tree_gen import Node, AtomType, gen_conc, gen_star, gen_atom, gen_union, Classe
+from agpl_analyzer.graphic_modules import tree_print, draw_tree, create_tree_dsplot
+from agpl_analyzer.constantes import A1, A2, A3, A4, A5, A
+from agpl_analyzer.analyse_modules import analyse, scan
 
 
 if __name__ == '__main__':
@@ -18,8 +18,7 @@ if __name__ == '__main__':
         ]
 
     list_grammar = []
-    # Faire un menu pour choisir si on veut afficher les arbres ou afficher les résultats des analyses
-    
+        
     print("\n\nBienvenue dans le programme de test des grammaires !")
     print("-"*50, end = '\n\n')
     choix = 0
@@ -27,7 +26,12 @@ if __name__ == '__main__':
         print("Voulez-vous afficher les arbres ou afficher les résultats des analyses ?")
         print("1 - Afficher le test des grammaires")
         print("2 - Afficher les arbres de la metagrammaire")
-        choix = int(input("Votre choix : "))
+        try :
+            choix = int(input("Votre choix : "))
+        except ValueError :
+            print("Erreur : Veuillez choisir 1 ou 2")
+            print()
+            continue
         print()
         if choix == 1 :
             choix2 = 0
@@ -36,7 +40,12 @@ if __name__ == '__main__':
             print("2 - Démontrer que G0 appartient à G0 avec l'analyse de chaque règle de la grammaire")
             print("3 - Analyser d'autre grammaires avec G0")
             print("4 - Analyser votre propre grammaire")
-            choix2 = int(input("Votre choix : "))
+            try:
+                choix2 = int(input("Votre choix : "))
+            except ValueError:
+                print("Erreur : Veuillez choisir un nombre entre 1 et 4")
+                print()
+                continue
             print()
             if choix2 == 1 :
                 list_grammar = scan(g0)
@@ -78,7 +87,12 @@ if __name__ == '__main__':
             print("Voulez-vous afficher les arbres de la metagrammaire avec la profondeur ou sans la profondeur ?")
             print("1 - Afficher les arbres de la metagrammaire sans la profondeur")
             print("2 - Afficher les arbres de la metagrammaire avec la profondeur")
-            choix2 = int(input("Votre choix : "))
+            try:
+                choix2 = int(input("Votre choix : "))
+            except ValueError:
+                print("Erreur : Veuillez choisir un nombre entre 1 et 2")
+                print()
+                continue
             print()
             if choix2 == 1 :
                 for i, noeud_regle in enumerate(A) :

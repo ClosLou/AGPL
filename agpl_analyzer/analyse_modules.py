@@ -1,5 +1,5 @@
-from constantes import A
-from tree_gen import *
+from agpl_analyzer.constantes import A
+from agpl_analyzer.tree_gen import *
 
 def scan(grammar : str)-> list:
     """Cette fonction analyse la chaîne de caractères `grammar` qui représente une grammaire
@@ -48,9 +48,9 @@ def scan(grammar : str)-> list:
             grammar_list.append((grammar[0], AtomType.NonTerminal))
             grammar = grammar[1:]
     return grammar_list
-        
-        
-def analyse(node : Node, grammar_list : str)-> bool :
+
+
+def analyse(node : Node, grammar_list : list)-> bool :
     """Cette fonction analyse une grammaire représentée par une liste de chaînes de caractères (`grammar_list`)
     en utilisant une structure d'arbre (`node`). Elle utilise une liste `index_list` pour suivre l'index actuel
     dans la grammaire. Si la fonction auxiliaire `analyse_aux` renvoie `True`
@@ -65,7 +65,7 @@ def analyse(node : Node, grammar_list : str)-> bool :
 
     Args:
         node (Node): noeud de l'arbre de la metagrammaire
-        grammar_list (str): grammaire à analyser sous forme de liste de tuples de la forme `(part, AtomType)`
+        grammar_list (list): grammaire à analyser sous forme de liste de tuples de la forme `(part, AtomType)`
 
     Returns:
         bool: True si la grammaire est correcte, False sinon

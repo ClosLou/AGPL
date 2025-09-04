@@ -1,4 +1,4 @@
-from tree_gen import Node, AtomType, Classe
+from agpl_analyzer.tree_gen import Node, AtomType, Classe
 # Utilisé pour le dessin de l'arbre
 #from dsplot import tree
 
