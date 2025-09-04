@@ -41,7 +41,7 @@ Cependant, le projet inclut un module optionnel (`dsplot_visualizer.py`) pour vi
 
 1.  **Clonez le dépôt :**
     ```bash
-    git clone ""
+    git clone git@github.com:ClosLou/AGPL.git
     cd agpl_project
     ```
 
