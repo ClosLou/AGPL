@@ -1,7 +1,6 @@
-from agpl_analyzer.tree_gen import Node, AtomType, gen_conc, gen_star, gen_atom, gen_union, Classe
-from agpl_analyzer.graphic_modules import tree_print, draw_tree, create_tree_dsplot
-from agpl_analyzer.constantes import A1, A2, A3, A4, A5, A
 from agpl_analyzer.analyse_modules import analyse, scan
+from agpl_analyzer.grammar_builder import A1, A2, A3, A4, A5, A
+from agpl_analyzer.tree_visualizer import tree_print, draw_tree
 
 
 if __name__ == '__main__':
@@ -18,7 +17,7 @@ if __name__ == '__main__':
         ]
 
     list_grammar = []
-        
+
     print("\n\nBienvenue dans le programme de test des grammaires !")
     print("-"*50, end = '\n\n')
     choix = 0
